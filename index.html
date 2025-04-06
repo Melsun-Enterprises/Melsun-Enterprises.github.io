@@ -4,16 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Emmanuel Institute of Certified Studies</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
   <style>
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Roboto', sans-serif;
       background-color: #f8f9fa;
       color: #333;
+      line-height: 1.6;
     }
 
     header {
@@ -24,14 +27,14 @@
     }
 
     header img {
-      max-width: 150px; /* Adjust the size of the logo */
+      max-width: 150px;
       display: block;
-      margin: 0 auto;
+      margin: 0 auto 20px;
     }
 
     header h1 {
-      margin: 10px 0;
       font-size: 2.5em;
+      margin: 10px 0;
     }
 
     header p {
@@ -49,20 +52,23 @@
       margin: 0 15px;
       text-decoration: none;
       font-weight: bold;
+      transition: color 0.3s;
     }
 
     nav a:hover {
-      text-decoration: underline;
+      color: #28a745;
     }
 
     section {
       padding: 40px 20px;
-      max-width: 900px;
+      max-width: 1200px;
       margin: auto;
     }
 
     h2 {
       color: #004080;
+      font-size: 2em;
+      margin-bottom: 20px;
     }
 
     .apply-btn {
@@ -76,6 +82,7 @@
       display: block;
       margin: 20px auto;
       width: 200px;
+      transition: background-color 0.3s;
     }
 
     .apply-btn:hover {
@@ -88,13 +95,104 @@
       padding: 20px;
       background: #eee;
       font-size: 0.9em;
+      margin-top: 40px;
+    }
+
+    .testimonial {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .testimonial img {
+      max-width: 50px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .testimonial p {
+      font-style: italic;
+      color: #666;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .gallery img {
+      max-width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgb(0,0,0);
+      background-color: rgba(0,0,0,0.4);
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 600px;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 10px;
+      }
+
+      nav a {
+        display: block;
+        margin: 10px 0;
+      }
+
+      section {
+        padding: 20px;
+      }
+
+      .testimonial img {
+        margin: 0 auto 10px;
+      }
+
+      .gallery {
+        justify-content: center;
+      }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <!-- Logo added here -->
     <img src="https://raw.githubusercontent.com/Melsun-Enterprises/Melsun-Enterprises.github.io/main/Emmanuel%20Logo.png" alt="Emmanuel Institute Logo">
     <h1>Emmanuel Institute of Certified Studies</h1>
     <p>Empowering Minds, Shaping Futures</p>
@@ -105,6 +203,8 @@
     <a href="#programs">Programs</a>
     <a href="#admissions">Admissions</a>
     <a href="#contact">Contact</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#gallery">Gallery</a>
   </nav>
 
   <section id="about">
@@ -121,23 +221,47 @@
     </ul>
   </section>
 
- <section id="admissions">
+  <section id="admissions">
     <h2>Admissions</h2>
     <p>Admissions are open throughout the year. Applicants must provide academic transcripts and a copy of their ID or passport. Contact our admin office to get started.</p>
-    
-    <!-- Embed Google Form -->
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc45sPq56iryNJnwy8TSf-iwlTugIcOguo1zfywcZL_b_OgZg/viewform?embedded=true" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
-</section>
+    <button class="apply-btn" onclick="openForm()">Apply Now</button>
+  </section>
 
   <section id="contact">
     <h2>Contact Us</h2>
-    <p>Email: emmanuelisntitute@gmail.com</p>
+    <p>Email: emmanuelinstitute@gmail.com</p>
     <p>Phone: +254 723 872 512</p>
+  </section>
+
+  <section id="testimonials">
+    <h2>Testimonials</h2>
+    <div class="testimonial">
+      <img src="https://via.placeholder.com/50" alt="Student">
+      <p>"Emmanuel Institute has been a life-changing experience. The courses are well-structured and the faculty is amazing."</p>
+      <p><strong>John Doe</strong></p>
+    </div>
+    <div class="testimonial">
+      <img src="https://via.placeholder.com/50" alt="Student">
+      <p>"I've learned so much here. The practical approach to learning has prepared me for my career."</p>
+      <p><strong>Jane Smith</strong></p>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <img src="https://via.placeholder.com/300x200" alt="Campus">
+      <img src="https://via.placeholder.com/300x200" alt="Classroom">
+      <img src="https://via.placeholder.com/300x200" alt="Event">
+    </div>
   </section>
 
   <footer>
     &copy; 2025 Emmanuel Institute of Certified Studies. All rights reserved.
   </footer>
 
-</body>
-</html>
+  <div id="formModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeForm()">&times;</span>
+      <h2>Application Form</h2>
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc45sPq56iryNJnwy8TSf-iwlTugIcOguo1zfywcZL_b_OgZg/viewform?embedded=true" width="100%" height="800" frameborder="0" marginheight="0"
